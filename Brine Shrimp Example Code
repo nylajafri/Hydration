@@ -1,0 +1,48 @@
+︠ce443928-39b9-42b9-b0a1-c0ab02657063︠
+%auto
+# This cell automatically evaluates on startup -- or run it manually if it didn't evaluate.
+# Here, it initializes the Jupyter kernel with the specified name and sets it as the default mode for this worksheet.
+jupyter_kernel = jupyter("python3")  # run "jupyter?" for more information.
+%default_mode jupyter_kernel
+︡e81128c5-45cf-4bc9-90f3-adb82d54e645︡{"stdout": "", "done": true}︡
+︠a87f8d58-e07f-48a6-a002-266a049a828e︠
+%matplotlib inline
+import matplotlib as mat
+import matplotlib.pyplot as plt 
+import pandas as pd 
+import numpy as np
+import seaborn as sns
+︡d1f39ebf-f579-4a12-afc6-e88bfa31670f︡{"stdout": "", "done": true}︡
+︠c4087574-0565-4c6d-96ff-3cc1fbbade78︠
+data=pd.read_csv("Reaction1,2,3 - Sheet1.csv")
+︡62b8ba68-bc30-406a-99df-495d4472c4a3︡{"stdout": "", "done": true}︡
+︠1ff8cead-5040-4d10-9198-efb2d6c2ede6︠
+g=sns.violinplot(data,palette="Set2", cut=1.5)
+g.set_ylabel("Reaction Time (ms)")
+︡a702558b-f6f0-4c86-a457-9d201fd75e4a︡{"stdout": "Text(0, 0.5, 'Reaction Time (ms)')\n<Figure size 432x288 with 1 Axes>", "done": true}︡
+︠ce6abc5e-ef43-493d-bba9-ca72d11cded8︠
+d=sns.displot(data,palette="Set2",bins=15,kde="True")
+d.set_axis_labels(x_var="Reaction Time (ms)")
+︡030d4ca4-d20e-4b21-bf06-1ab9b386299b︡{"stdout": "<seaborn.axisgrid.FacetGrid at 0x7f2678a645e0>\n<Figure size 496.5x360 with 1 Axes>", "done": true}︡
+︠c718772f-8eb3-4422-bd1c-ba57ef5c922d︠
+d=sns.boxplot(data,palette="Set2")
+d.set_ylabel("Reaction Time (ms)")
+︡085720e8-0387-4487-be5c-72430bf38c65︡{"stdout": "Text(0, 0.5, 'Reaction Time (ms)')\n<Figure size 432x288 with 1 Axes>", "done": true}︡
+︠7bd84c94-9561-4c5c-980f-09903a1c841f︠
+q=sns.kdeplot(
+   data,
+   fill=True, common_norm=False, palette="Set2",
+   alpha=.5, linewidth=0,)
+q.set_xlabel("Reaction Time (ms)")
+︡d35c7e91-d891-4f3b-9f24-3623c5a5268a︡{"stdout": "Text(0.5, 0, 'Reaction Time (ms)')\n<Figure size 432x288 with 1 Axes>", "done": true}︡
+︠824dd51a-39b8-486a-9784-b89775c00ad8︠
+r=sns.violinplot(data10,palette="Set2", saturate=10)
+r.set_ylabel("Frequency (Hz)")
+︡8c72b6ed-95de-4840-a4b6-d99577e2a516︡{"stdout": "Text(0, 0.5, 'Frequency (Hz)')\n<Figure size 432x288 with 1 Axes>", "done": true}︡
+︠7cf30860-d13c-4e70-8956-29b1a6d36923︠
+datac=pd.read_csv("Velocity (mm_s) - Sheet1.csv")
+︡cd193659-2df9-457a-97c5-f9bc3dc8a897︡{"stdout": "", "done": true}︡
+︠280eb831-2c47-402a-85d9-57e7983d1e0b︠
+u=sns.violinplot(datac,palette="Set2", cut=0)
+u.set_ylabel("Velocity (mm/s)")
+︡9398ea46-0342-4dd4-a9b7-9653e3093660︡{"stdout": "Text(0, 0.5, 'Velocity (mm/s)')\n<Figure size 432x288 with 1 Axes>", "done": true}︡
