@@ -1,0 +1,57 @@
+#import 
+%matplotlib inline
+import pandas as pd 
+import numpy as np 
+from matplotlib import pyplot as plt
+import matplotlib.cm as cm 
+from math import pi 
+import matplotlib.pyplot as plt
+import plotly.express as px
+import plotly.graph_objects as go
+
+#Read excel data containing Vector length and theta
+f=pd.read_csv("2 Hydra Polar Data - Sheet1 (1).csv")
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatterpolargl(
+      r = f.Vector,      
+      theta = f.Theta,
+      name = "Hydra 1",
+      marker=dict(size=15, color="mediumseagreen")
+    ))
+fig.add_trace(go.Scatterpolargl(
+      r = f.Vector2,
+      theta = f.Theta2,
+      name = "Hydra 2",
+      marker=dict(size=20, color="darkorange")
+    ))
+
+fig.update_traces(mode="markers", marker=dict(line_color='white', opacity=0.7))
+
+fig.update_layout(
+    title = "Hydra Head Orientation",
+    font_size = 15,
+    showlegend = False,
+    polar = dict(
+      bgcolor = "rgb(223, 223, 223)",
+      angularaxis = dict(
+        linewidth = 3,
+        showline=True,
+        linecolor='black'
+      ),
+      radialaxis = dict(
+        side = "counterclockwise",
+        showline = True,
+        linewidth = 2,
+        gridcolor = "white",
+        gridwidth = 2,
+      )
+    ),
+    paper_bgcolor = "rgb(223, 223, 223)"
+)
+
+fig.show()
+
+
+
